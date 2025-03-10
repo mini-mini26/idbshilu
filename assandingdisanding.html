@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assanding</title>
+    <style>
+        body{
+            text-align: center;
+            margin: 50px;
+        }
+        input,button{
+    
+            padding: 10px;
+            margin: 10px;
+        }
+    
+        #output{
+            margin-top: 20px;
+            color: indigo;
+            font-weight: bold;
+        }
+    
+    </style>
+</head>
+<body>
+    
+    <h1> Enter number</h1>
+    <input type="text" name="numberInput" id="numberInput" >
+    <button onclick="sortNumber()"> submit</button>
+
+    <div id="output"></div>
+    <!--<script>
+        function sortNumber() {
+            let input = document.getElementById("numberInput").value;
+
+            let numbers = input.split(",").map(num => parseFloat(num.trim()));
+            let sortedNumbers = numbers.filter(num => !isNaN(num)).sort((a, b) => a - b);
+            document.getElementById("output").innerHTML = "Sorted Numbers: " + sortedNumbers.join(",");
+        }
+    </script>-->
+
+<script>
+    function sortNumber() {
+        let input = document.getElementById("numberInput").value;
+
+        let numbers = input.split(",").map(num => parseFloat(num.trim()));
+        let sortedNumbers = numbers.filter(num => !isNaN(num)).sort((a, b) => b - a); // Change a - b to b - a for descending order
+
+        document.getElementById("output").innerHTML = "Sorted Numbers: " + sortedNumbers.join(",");
+    }
+</script>
+
+    
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>large number</title>
+    <style>
+        body{
+            text-align: center;
+            margin: 50px;
+        }
+        input,button{
+    
+            padding: 10px;
+            margin: 10px;
+        }
+    
+        #output{
+            margin-top: 20px;
+            color: indigo;
+            font-weight: bold;
+        }
+    
+    </style>
+</head>
+
+<body>
+
+    <h1> Enter number</h1>
+    <input type="text" name="numberInput" id="numberInput" >
+<!--<button onclick="findMax()"> submit</button>-->
+<button onclick="findMin()"> submit</button>
+
+
+<div id="output"></div>
+
+<!--<script>
+
+    function findMax()
+    {
+        let input = document.getElementById("numberInput").value;
+
+        let numbers = input.split(",").map(num=> parseFloat(num.trim()));
+        let maxNumber = null;
+
+        for( var i=0; i<numbers.length; i++)
+    {
+        if(!isNaN(numbers[i]))
+    {
+        if(maxNumber === null  || numbers[i] > maxNumber)
+    {
+        maxNumber = numbers[i];
+    }
+    }
+    }
+
+    if (maxNumber != null)
+    {
+        document.getElementById("output").innerHTML = "Maximum number is:"+ maxNumber;
+    }
+    else{
+        document.getElementById("output").innerHTML="please enter valid number";
+    }
+    }
+</script>-->
+
+<script>
+    function findMin() {
+        let input = document.getElementById("numberInput").value;
+
+        let numbers = input.split(",").map(num => parseFloat(num.trim()));
+        let minNumber = null;
+
+        for (let i = 0; i < numbers.length; i++) {  // Fixed loop condition
+            if (!isNaN(numbers[i])) {
+                if (minNumber === null || numbers[i] < minNumber) {
+                    minNumber = numbers[i];
+                }
+            }
+        }
+
+        if (minNumber !== null) {
+            document.getElementById("output").innerHTML = "Minimum number is: " + minNumber;
+        } else {
+            document.getElementById("output").innerHTML = "Please enter valid numbers.";
+        }
+    }
+</script>
+
+
+
+    
+</body>
+</html>

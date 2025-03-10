@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculate Factorial</title>
+</head>
+<body>
+
+    <h1>Enter a Number</h1>
+    <input type="text" id="numberInput">
+    <button onclick="fact()">Submit</button>
+
+    <p id="result"></p> <!-- Result will be displayed here -->
+
+    <script type="text/javascript">
+        function fact() {
+            const number = parseInt(document.getElementById("numberInput").value);
+            const resultElement = document.getElementById("result");
+
+            if (isNaN(number)) {
+                resultElement.innerHTML = "Invalid input!.";
+                return;
+            }
+
+            if (number < 0) {
+                resultElement.innerHTML = "Error!";
+            } 
+            else if (number === 0) {
+                resultElement.innerHTML = `The factorial of ${number} is 1`;
+            } 
+            else {
+                let fact = 1;
+                for (let i = 1; i <= number; i++) {
+                    fact *= i;
+                }
+                resultElement.innerHTML = `The factorial of ${number} is ${fact}`;
+            }
+        }
+    </script>
+
+</body>
+</html>
