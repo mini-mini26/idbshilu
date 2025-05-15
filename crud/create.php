@@ -1,4 +1,5 @@
 <?php
+ error_reporting(1);
 include 'db.php'; // Ensure $conn is a mysqli connection
 
 $errors = [];
@@ -7,10 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_user'])) {
     $email = trim($_POST["email"]);
     $phone = trim($_POST["phone"]);
 
-    // Email validation
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    // Email validation using regex
+    if (empty($email)) {
+        $errors[] = "Email is required.";
+    } elseif (!preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/i", $email)) {
         $errors[] = "Invalid email format.";
     }
+
 
     // Phone validation (only digits, 10 to 15 characters)
     if (!preg_match('/^[0-9]{11}$/', $phone)) {
